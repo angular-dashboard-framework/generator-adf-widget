@@ -13,5 +13,18 @@
     "components",
     "src"
   ],
-  "dependencies": {}
+  "dependencies": {
+    "angular-dashboard-framework": "0.5.1"
+  },
+  "devDependencies": {
+    "angular-local-storage": "0.1.5"
+  },
+  "overrides": {
+    "angular-dashboard-framework": {
+      "main": [
+        "dist/angular-dashboard-framework.min.js",
+        "dist/angular-dashboard-framework.min.css"
+      ]
+    }
+  }
 }

@@ -40,6 +40,7 @@ module.exports = yeoman.generators.Base.extend({
       this.template('_bower.json', 'bower.json', ctx);
       this.template('_gulpfile.js', 'gulpfile.js', ctx);
       this.template('src/_script.js', 'src/' + this.widgetName + '.js', ctx);
+      this.template('sample/_index.html', 'sample/index.html', ctx);
       this.fs.copy(
         this.templatePath('src/view.html'),
         this.destinationPath('src/view.html')

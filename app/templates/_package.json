@@ -6,8 +6,10 @@
     "gulp": "^3.8.10",
     "gulp-angular-templatecache": "^1.5.0",
     "gulp-concat": "^2.4.3",
+    "gulp-connect": "~2.2.0",
     "gulp-csslint": "^0.1.5",
     "gulp-if": "^1.2.5",
+    "gulp-inject": "~1.1.1",
     "gulp-jshint": "^1.9.0",
     "gulp-load-plugins": "^0.8.0",
     "gulp-minify-css": "^0.4.3",
@@ -15,8 +17,7 @@
     "gulp-ng-annotate": "^0.5.2",
     "gulp-uglify": "^1.1.0",
     "jshint-stylish": "^1.0.0",
-    "rimraf": "^2.2.8",
-    "ternary-stream": "^1.2.3",
-    "through2": "^0.6.3"
+    "wiredep": "~2.2.2",
+    "del": "^1.1.1"
   }
 }
