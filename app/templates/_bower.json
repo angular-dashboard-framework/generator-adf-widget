@@ -1,0 +1,17 @@
+{
+  "name": "adf-widget-<%= widgetName %>",
+  "version": "0.1.0",
+  "main": "dist/adf-widget-<%= widgetName %>.js",
+  "ignore": [
+    "bower.json",
+    ".bowerrc",
+    ".jshintrc",
+    ".gitignore",
+    "gulpfile.js",
+    "node_modules",
+    "package.json",
+    "components",
+    "src"
+  ],
+  "dependencies": {}
+}
