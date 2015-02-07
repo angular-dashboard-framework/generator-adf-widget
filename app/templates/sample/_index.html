@@ -44,7 +44,8 @@
     <script type="text/javascript">
       angular
        .module('adfWidgetSample', ['adf', 'adf.widget.<%= widgetName %>', 'LocalStorageModule'])
-       .config(function(dashboardProvider){
+       .config(function(dashboardProvider, localStorageServiceProvider){
+         localStorageServiceProvider.setPrefix('adf.<%= widgetName %>');
          dashboardProvider.structure('4-8', {
             rows: [{
               columns: [{
