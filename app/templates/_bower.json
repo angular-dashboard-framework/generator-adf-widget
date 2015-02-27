@@ -14,7 +14,7 @@
     "src"
   ],
   "dependencies": {
-    "angular-dashboard-framework": "0.6.0"
+    "angular-dashboard-framework": "0.7.0"
   },
   "devDependencies": {
     "angular-local-storage": "0.1.5"
