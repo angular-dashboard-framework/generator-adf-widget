@@ -36,7 +36,9 @@ gulp.task('templates', function(){
 });
 
 gulp.task('sample', ['templates'], function(){
-  var files = gulp.src(['src/*.js', 'src/*.css', '.tmp/dist/*.js'], {read: false});
+  var files = gulp.src(['src/*.js', 'src/*.css', '.tmp/dist/*.js'])
+                  .pipe($.angularFilesort());
+
   gulp.src('sample/index.html')
       .pipe(wiredep({
         directory: './components/',
@@ -74,6 +76,7 @@ gulp.task('js', function() {
   gulp.src(['src/*.js', 'src/*.html'])
       .pipe($.if('*.html', $.minifyHtml()))
       .pipe($.if('*.html', $.angularTemplatecache(pkg.name + '.tpl.js', templateOptions)))
+      .pipe($.if('*.js', $.angularFilesort()))
       .pipe($.ngAnnotate())
       .pipe($.concat(pkg.name + '.min.js'))
       // https://github.com/olov/ng-annotate/issues/133
