@@ -22,10 +22,24 @@ module.exports = yeoman.generators.Base.extend({
       validate: function(input){
         return input.length > 2;
       }
+    },{
+      name: 'widgetTitle',
+      message: 'What is the title of the widget?',
+      validate: function(input){
+        return input.length > 0;
+      }
+    },{
+      name: 'widgetDescription',
+      message: 'Please enter a description for your widget?',
+      validate: function(input){
+        return input.length > 0;
+      }
     }];
 
     this.prompt(prompts, function (props) {
       this.widgetName = props.widgetName;
+      this.widgetTitle = props.widgetTitle;
+      this.widgetDescription = props.widgetDescription;
 
       done();
     }.bind(this));
@@ -34,7 +48,9 @@ module.exports = yeoman.generators.Base.extend({
   writing: {
     app: function () {
       var ctx = {
-        widgetName: this.widgetName
+        widgetName: this.widgetName,
+        widgetTitle: this.widgetTitle,
+        widgetDescription: this.widgetDescription
       };
       this.template('_package.json', 'package.json', ctx);
       this.template('_bower.json', 'bower.json', ctx);
