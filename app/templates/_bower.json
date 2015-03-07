@@ -1,7 +1,7 @@
 {
   "name": "adf-widget-<%= widgetName %>",
   "version": "0.1.0",
-  "main": "dist/adf-widget-<%= widgetName %>.js",
+  "main": "dist/adf-widget-<%= widgetName %>.min.js",
   "ignore": [
     "bower.json",
     ".bowerrc",
