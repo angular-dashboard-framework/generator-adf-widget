@@ -4,7 +4,14 @@ var wiredep = require('wiredep').stream;
 var $ = require('gulp-load-plugins')();
 var del = require('del');
 var jsReporter = require('jshint-stylish');
+var annotateAdfPlugin = require('ng-annotate-adf-plugin');
 var pkg = require('./package.json');
+
+var annotateOptions = {
+  plugin: [
+    annotateAdfPlugin
+  ]
+};
 
 var templateOptions = {
   root: '{widgetsPath}/<%= widgetName %>/src',
@@ -77,10 +84,9 @@ gulp.task('js', function() {
       .pipe($.if('*.html', $.minifyHtml()))
       .pipe($.if('*.html', $.angularTemplatecache(pkg.name + '.tpl.js', templateOptions)))
       .pipe($.if('*.js', $.angularFilesort()))
-      .pipe($.ngAnnotate())
+      .pipe($.ngAnnotate(annotateOptions))
       .pipe($.concat(pkg.name + '.min.js'))
-      // https://github.com/olov/ng-annotate/issues/133
-      //.pipe($.uglify())
+      .pipe($.uglify())
       .pipe(gulp.dest('dist/'));
 });
 
