@@ -21,13 +21,13 @@ var templateOptions = {
 /** lint **/
 
 gulp.task('csslint', function(){
-  gulp.src('src/*.css')
+  gulp.src('src/**/*.css')
       .pipe($.csslint())
       .pipe($.csslint.reporter());
 });
 
 gulp.task('jslint', function(){
-  gulp.src('src/*.js')
+  gulp.src('src/**/*.js')
       .pipe($.jshint())
       .pipe($.jshint.reporter(jsReporter));
 });
@@ -37,14 +37,14 @@ gulp.task('lint', ['csslint', 'jslint']);
 /** serve **/
 
 gulp.task('templates', function(){
-  return gulp.src('src/*.html')
+  return gulp.src('src/**/*.html')
              .pipe($.angularTemplatecache('templates.tpl.js', templateOptions))
              .pipe(gulp.dest('.tmp/dist'));
 });
 
 gulp.task('sample', ['templates'], function(){
-  var files = gulp.src(['src/*.js', 'src/*.css', '.tmp/dist/*.js'])
-                  .pipe($.angularFilesort());
+  var files = gulp.src(['src/**/*.js', 'src/**/*.css', 'src/**/*.less', '.tmp/dist/*.js'])
+                  .pipe($.if('*.js', $.angularFilesort()));
 
   gulp.src('sample/index.html')
       .pipe(wiredep({
@@ -59,7 +59,7 @@ gulp.task('sample', ['templates'], function(){
 });
 
 gulp.task('watch', function(){
-  gulp.watch(['src/*'], ['sample']);
+  gulp.watch(['src/**'], ['sample']);
 });
 
 gulp.task('serve', ['watch', 'sample'], function(){
@@ -73,21 +73,26 @@ gulp.task('serve', ['watch', 'sample'], function(){
 /** build **/
 
 gulp.task('css', function(){
-  gulp.src('src/*.css')
-      .pipe($.concat(pkg.name + '.min.css'))
+  gulp.src(['src/**/*.css', 'src/**/*.less'])
+      .pipe($.if('*.less', $.less()))
+      .pipe($.concat(pkg.name + '.css'))
+      .pipe(gulp.dest('dist'))
+      .pipe($.rename(pkg.name + '.min.css'))
       .pipe($.minifyCss())
-      .pipe(gulp.dest('dist/'));
+      .pipe(gulp.dest('dist'));
 });
 
 gulp.task('js', function() {
-  gulp.src(['src/*.js', 'src/*.html'])
+  gulp.src(['src/**/*.js', 'src/**/*.html'])
       .pipe($.if('*.html', $.minifyHtml()))
       .pipe($.if('*.html', $.angularTemplatecache(pkg.name + '.tpl.js', templateOptions)))
-      .pipe($.if('*.js', $.angularFilesort()))
+      .pipe($.angularFilesort())
+      .pipe($.concat(pkg.name + '.js'))
+      .pipe(gulp.dest('dist'))
+      .pipe($.rename(pkg.name + '.min.js'))
       .pipe($.ngAnnotate(annotateOptions))
-      .pipe($.concat(pkg.name + '.min.js'))
       .pipe($.uglify())
-      .pipe(gulp.dest('dist/'));
+      .pipe(gulp.dest('dist'));
 });
 
 /** clean **/
