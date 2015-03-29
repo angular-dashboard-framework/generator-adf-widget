@@ -19,6 +19,7 @@
     "adf",
     "adf-widget"
   ],
+  "description": "<%= widgetDescription %>",
   "dependencies": {
     "angular-dashboard-framework": "0.7.0"
   },

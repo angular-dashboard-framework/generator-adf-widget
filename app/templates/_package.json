@@ -7,6 +7,7 @@
     "adf",
     "adf-widget"
   ],
+  "description": "<%= widgetDescription %>",
   "dependencies": {},
   "devDependencies": {
     "gulp": "^3.8.11",
