@@ -21,6 +21,8 @@
   ],
   "keywords": [
     "yeoman-generator",
+    "dashboard",
+    "widget",
     "web",
     "adf",
     "gulp"
