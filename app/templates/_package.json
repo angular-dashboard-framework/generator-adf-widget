@@ -1,6 +1,12 @@
 {
   "name": "adf-widget-<%= widgetName %>",
   "version": "0.1.0",
+  "keywords": [
+    "dashboard",
+    "widget",
+    "adf",
+    "adf-widget"
+  ],
   "dependencies": {},
   "devDependencies": {
     "gulp": "^3.8.10",
