@@ -33,7 +33,11 @@ module.exports = yeoman.generators.Base.extend({
       name: 'widgetDescription',
       message: 'Please enter a description for your widget?',
       validate: function(input){
-        return input.length > 0;
+        var value = input.length > 0 && input.length <= 140;
+        if (!value){
+          value = "description must be > 0 and < 140";
+        }
+        return value;
       }
     }];
 
