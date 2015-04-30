@@ -21,7 +21,7 @@
   ],
   "description": "<%= widgetDescription %>",
   "dependencies": {
-    "angular-dashboard-framework": "0.7.0"
+    "angular-dashboard-framework": "0.8.0"
   },
   "devDependencies": {
     "angular-local-storage": "0.1.5"
