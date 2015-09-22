@@ -21,9 +21,18 @@
   ],
   "description": "<%= widgetDescription %>",
   "dependencies": {
-    "angular-dashboard-framework": "0.8.0"
+    "angular-dashboard-framework": ">=0.10"
   },
   "devDependencies": {
-    "angular-local-storage": "0.1.5"
+    "angular-local-storage": ">=0.2"
+  },
+  "overrides": {
+    "bootstrap" : {
+      "main": [
+        "less/bootstrap.less",
+        "dist/css/bootstrap.css",
+        "dist/js/bootstrap.js"
+      ]
+    }
   }
 }
