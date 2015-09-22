@@ -53,7 +53,15 @@
        .module('adfWidgetSample', ['adf', 'adf.widget.<%= widgetName %>', 'LocalStorageModule'])
        .config(function(dashboardProvider, localStorageServiceProvider){
          localStorageServiceProvider.setPrefix('adf.<%= widgetName %>');
-         dashboardProvider.structure('4-8', {
+         dashboardProvider.structure('1', {
+            rows: [{
+              columns: [{
+                styleClass: 'col-md-12',
+                widgets: []
+              }]
+            }]
+          })
+          .structure('4-8', {
             rows: [{
               columns: [{
                 styleClass: 'col-md-4',
@@ -70,10 +78,7 @@
            model = {
             rows: [{
               columns: [{
-                styleClass: 'col-md-4',
-                widgets: []
-              }, {
-                styleClass: 'col-md-8',
+                styleClass: 'col-md-12',
                 widgets: [{
                   type: '<%= widgetName %>',
                   title: '<%= widgetTitle %>',
