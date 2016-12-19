@@ -1,41 +1,38 @@
 {
-  "name": "generator-adf-widget",
-  "version": "0.3.3",
-  "description": "Yeoman generator for angular-dashboard-framework widgets",
-  "license": "MIT",
-  "main": "app/index.js",
-  "repository": "sdorra/generator-adf-widget",
-  "author": {
-    "name": "Sebastian Sdorra",
-    "email": "github@scm-manager.org",
-    "url": "https://github.com/sdorra"
-  },
-  "engines": {
-    "node": ">=0.10.0"
-  },
-  "scripts": {
-    "test": "mocha"
-  },
-  "files": [
-    "app"
-  ],
-  "keywords": [
-    "yeoman-generator",
-    "dashboard",
-    "widget",
-    "web",
-    "adf",
-    "gulp"
-  ],
-  "dependencies": {
-    "yeoman-generator": "^0.18.0",
-    "chalk": "^0.5.0",
-    "yosay": "^0.3.0"
-  },
-  "devDependencies": {
-    "mocha": "*"
-  },
-  "peerDependencies": {
-    "yo": ">=1.0.0"
-  }
+    "name": "generator-adf-widget",
+    "version": "0.4.0",
+    "description": "Yeoman generator for angular-dashboard-framework widgets",
+    "license": "MIT",
+    "main": "app/index.js",
+    "repository": "sdorra/generator-adf-widget",
+    "author": {
+        "name": "Sebastian Sdorra",
+        "email": "github@scm-manager.org",
+        "url": "https://github.com/sdorra"
+    },
+    "engines": {
+        "node": ">=0.10.0"
+    },
+    "scripts": {
+        "test": "mocha"
+    },
+    "files": [
+        "app"
+    ],
+    "keywords": [
+        "yeoman-generator",
+        "dashboard",
+        "widget",
+        "web",
+        "adf",
+        "gulp"
+    ],
+    "devDependencies": {
+        "mocha": "*"
+    },
+    "dependencies": {
+        "chalk": "^1.1.3",
+        "yeoman-generator": "^1.0.0",
+        "yosay": "^1.2.1"
+    }
 }
